@@ -30,7 +30,6 @@ namespace graphs
         Spring(graphs::Ball &ball1, graphs::Ball &ball2, float normalLength, float springCoefficient, sf::Color color = sf::Color::White);
 
         // methods
-        void update();
         void draw(sf::RenderWindow &window);
         void computeSpringForce();
     };

@@ -57,30 +57,6 @@ graphs::Spring::Spring(graphs::Ball &ball1, graphs::Ball &ball2, float normalLen
     }
 }
 
-void graphs::Spring::update(){
-    linalg::Vector axis(this->ball2.pos - this->ball1.pos);
-    float currentLength = axis.magnitude();
-    float maxLength = this->normalLength * 2;
-
-    if(currentLength > maxLength){
-        float overlap = currentLength - maxLength;
-        linalg::Vector normalVector(axis.unit());
-
-        float invMass1 = 1.0f / this->ball1.mass;
-        float invMass2 = 1.0f / this->ball2.mass;
-        float totalInvMass = invMass1 + invMass2;
-
-        if (totalInvMass > 0.f)
-        {
-            linalg::Vector correction1 = normalVector * (overlap * (invMass1 / totalInvMass));
-            linalg::Vector correction2 = normalVector * (overlap * (invMass2 / totalInvMass));
-
-            this->ball1.pos = this->ball1.pos + correction1;
-            this->ball2.pos = this->ball2.pos - correction2;
-        }
-    }
-}
-
 void graphs::Spring::draw(sf::RenderWindow &window)
 {
     std::array<sf::Vertex, 2> line =

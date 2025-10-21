@@ -127,10 +127,7 @@ int main()
                     ball.checkWallCollision();
                     ball.update(physics::SUB_DELTA_TIME);
                 }
-                for (graphs::Spring &spring : body.edgeSprings)
-                {
-                    spring.update(); // check length of springs
-                }
+
                 body.update(); // update center of body
             }
 
