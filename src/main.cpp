@@ -60,7 +60,7 @@ int main()
         float m = getRandomNumber(10.f, 20.f);     // mass
         float e = getRandomNumber(0.1f, 0.5f);     // elasticity
         float s = getRandomNumber(0.1f, 0.8f);     // spring stiffness
-        float p = getRandomNumber(0.f, 0.05f);      // pressure stiffness
+        float p = getRandomNumber(0.f, 0.05f);     // pressure stiffness
 
         graphs::SoftBodys.emplace_back(linalg::Vector(x, y), sf::Color(red, green, blue), 25, r, m, e, s, p); // position, color, radius, mass, elasticity
     }
